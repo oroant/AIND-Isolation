@@ -15,7 +15,7 @@ def baseline_score(game, player):
     return game.utility(player) + float(our_moves - their_moves)
 
 
-def alternative_baseline_score(game, player):
+def improved_baseline_score(game, player):
     """ returns alternative baseline score, weighting their moves """
 
     other_player = game.get_opponent(player)

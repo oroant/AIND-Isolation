@@ -15,7 +15,7 @@ class Timeout(Exception):
     """Subclass base exception for code clarity."""
     pass
 
-def cached_score(fn):
+'''def cached_score(fn):
     """ cache scores from function to avoid calculation penalty """
 
     cache = {}
@@ -30,7 +30,7 @@ def cached_score(fn):
 
     return score
 
-@cached_score
+@cached_score'''
 def custom_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
     of the given player.
@@ -54,7 +54,7 @@ def custom_score(game, player):
         The heuristic value of the current game state to the specified player.
     """
 
-    return hs.ratio_count_score(game, player)
+    return hs.ratio_score(game, player)
 
 
 class CustomPlayer:
