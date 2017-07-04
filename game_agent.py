@@ -15,6 +15,7 @@ class Timeout(Exception):
     """Subclass base exception for code clarity."""
     pass
 
+
 '''def cached_score(fn):
     """ cache scores from function to avoid calculation penalty """
 
@@ -31,6 +32,8 @@ class Timeout(Exception):
     return score
 
 @cached_score'''
+
+
 def custom_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
     of the given player.
@@ -150,7 +153,6 @@ class CustomPlayer:
         except Timeout:
             return result
 
-
     def apply_method(self, game, depth):
         """ Apply game algorithm based on setting passed in during initialization """
 
@@ -158,7 +160,6 @@ class CustomPlayer:
             return self.minimax(game, depth)
         else:
             return self.alphabeta(game, depth)
-
 
     def minimax(self, game, depth, maximizing_player=True):
         """Implement the minimax search algorithm as described in the lectures.
@@ -208,7 +209,8 @@ class CustomPlayer:
         outcomes = [map_outcome(move) for move in legal_moves]
 
         result = None
-        get_score = lambda x: x["score"]
+
+        def get_score(x): return x["score"]
 
         if maximizing_player:
             result = max(outcomes, key=get_score)
@@ -216,7 +218,6 @@ class CustomPlayer:
             result = min(outcomes, key=get_score)
 
         return result["score"], result["move"]
-
 
     def alphabeta(self, game, depth, alpha=float("-inf"), beta=float("inf"), maximizing_player=True):
         """Implement minimax search with alpha-beta pruning as described in the
